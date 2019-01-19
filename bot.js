@@ -9,11 +9,11 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (!message.content.startsWith(prefix)) return;
  
+  if (message.content.startsWith(prefix + "ping")) {
+    message.channel.send("pong!");
+  } else
   if (message.content.startsWith(prefix + "buy")) {
     message.channel.send("test");
-  } else
-  if (message.content.startsWith(prefix + "purchase")) {
-    message.channel.send("bar!");
   }
   
 });
