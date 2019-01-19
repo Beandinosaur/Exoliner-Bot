@@ -7,7 +7,6 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
   
   if (message.content.indexOf(prefix) !== 0) return;
 	var sender = message.author
