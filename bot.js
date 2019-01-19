@@ -25,6 +25,9 @@ if (command == 'whitelist') {
 	let role = message.guild.roles.find('name', 'Whitelisted');
 	if (!role) return message.channel.send('could not find the whitelisted role ahhhh');
 	
+	if(message.member.roles.find("name", "Whitelisted")) {
+		return message.channel.send('user is already whitelisted are u high')
+	}
 	member.addRole(role.id);
 	message.channel.send(`***${member.user.tag} was successfully whitelisted***`);
 }
