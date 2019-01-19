@@ -26,7 +26,7 @@ if (command == 'whitelist') {
 	if (!role) return message.channel.send('could not find the whitelisted role ahhhh');
 	
 	member.addRole(role.id);
-	message.channel.send(`**${member.user.tag} was successfully whitelisted**`);
+	message.channel.send(`***${member.user.tag} was successfully whitelisted***`);
 }
   
 });
