@@ -6,7 +6,7 @@ client.on('ready', () => {
   console.log(`Ready!`);
 });
 
-client.on('message', msg => {
+client.on('message', message => {
   
   if (message.content.indexOf(prefix) !== 0) return;
 	var sender = message.author
