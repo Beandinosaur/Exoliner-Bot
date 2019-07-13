@@ -19,7 +19,7 @@ if (command === 'request') {
 		let username = args[0]
 		if (!args[0]) return message.channel.send('You did not specify a user to whitelist.')
 		
-		let owner = message.user.tag
+		let owner = message.author.tag
 		message.channel.send(`Sent request for account ${username}.`)
 		
 		channel.send(`***User ${owner} sent a whitelist request for username ${username}***.`)
