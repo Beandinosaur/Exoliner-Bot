@@ -11,7 +11,7 @@ if (message.content.indexOf(prefix) !== 0) return;
 	
 var sender = message.author
 let args = message.content.slice(prefix.length).split(/ +/);
-let channel = client.channels.get("599542199998349312")
+let acceptWlChannel = client.channels.get("599542199998349312")
 const command = args.shift().toLowerCase();
 	
 if (command === 'request') {
@@ -25,7 +25,7 @@ if (command === 'request') {
 		
 		message.channel.send(`Sent whitelist request for account ${username}.`)
 		
-		channel.send(`User ${owner} sent a whitelist request for username '${username}'.`)
+		acceptWlChannel.send(`User ${owner} sent a whitelist request for username '${username}'.`)
 		.then(function (message) {
 			message.react('✅')
 			message.react('❌')
