@@ -13,34 +13,50 @@ var sender = message.author
 let args = message.content.slice(prefix.length).split(/ +/);
 let channel = client.channels.get("599542199998349312")
 const command = args.shift().toLowerCase();
-	
+
+const requestReactions = {
+	ACCEPT: '✅',
+	DENY: '❌',
+}
+
 if (command === 'request') {
 	if (message.channel.type == "dm") {
 		let username = args[0]
-		let owner = message.author
 		message.channel.send(`Sent request for account ${username}.`)
 		
-		channel.send(`User ${owner} sent a whitelist request for username '${username}'.`)
-		.then(function (message) {
-			message.react('✅')
-			message.react('❌')
+		const filter = (reaction, user) => {
+			return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+		};
+		
+		channel.send(`User ${sender} sent a whitelist request for username '${username}'.`).then(async message => {
+			message.react('✅').then(() => message.react('❌'));
+			
+			
+			
+			message.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+				.then(collected => {
+				const reaction = collected.first();
+				if (reaction.emoji.name === '✅') {
+					message.reply('you reacted with a thumbs up.');
+				}
+				else {
+					message.reply('you reacted with a thumbs down.');
+				}
+			})
+			.catch(collected => {
+				console.log(`After a minute, only ${collected.size} out of 4 reacted.`);
+				message.reply('you didn\'t react with neither a thumbs up, nor a thumbs down.');
+			});
 		})
 	}
 }
 	
 if (command == 'whitelist') {
-	if (!message.member.permissions.has('ADMINISTRATOR')) return;
-	if (!args[0]) return message.channel.send('who are you trying to whitelist noob')
-	let member = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-	if (!member) return message.channel.send('who are you trying to whitelist noob');
-	let role = message.guild.roles.find('name', 'Whitelisted');
-	if (!role) return message.channel.send('could not find the whitelisted role ahhhh');
+	if (!message.member.permissions.has('ADMINISTRATOR') return message.channel.send('You do not have permissions to use this command.')
+	if (!args[0]) return message.channel.send('You did not specify the user to whitelist.')
 	
-	if(message.member.roles.find("name", "Whitelisted")) {
-		return message.channel.send('that user is already whitelisted are u high')
-	}
-	member.addRole(role.id);
-	message.channel.send(`***${member.user.tag} was successfully whitelisted***`);
+	let user = args[0]
+	message.channel.send(`Successfully whitelisted user ${user}`);
 }
   
 });
