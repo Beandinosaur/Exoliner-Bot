@@ -45,7 +45,7 @@ if (command == 'whitelist') {
 
 	let username = args[0]
 	message.channel.send(`Successfully whitelisted user '${username}'`);
-	WlLogs.send(`User ${username} has been whitelisted by ${message.author}`)
+	WlLogs.send(`User '${username}' has been whitelisted by ${message.author}`)
 }
 
 });
