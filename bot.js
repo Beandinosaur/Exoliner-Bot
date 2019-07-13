@@ -13,19 +13,17 @@ var sender = message.author
 let args = message.content.slice(prefix.length).split(/ +/);
 let channel = client.channels.get("599542199998349312")
 const command = args.shift().toLowerCase();
-
-const requestReactions = {
-	ACCEPT: '✅',
-	DENY: '❌',
-}
-
+	
 if (command === 'request') {
 	if (message.channel.type == "dm") {
 		let username = args[0]
+		let owner = message.author
 		message.channel.send(`Sent request for account ${username}.`)
 		
-		channel.send(`User ${sender} sent a whitelist request for username '${username}'.`).then(async message => {
-			message.react('✅').then(() => message.react('❌'));
+		channel.send(`User ${owner} sent a whitelist request for username '${username}'.`)
+		.then(function (message) {
+			message.react('✅')
+			message.react('❌')
 		})
 	}
 }
