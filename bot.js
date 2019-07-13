@@ -14,11 +14,6 @@ let args = message.content.slice(prefix.length).split(/ +/);
 let channel = client.channels.get("599542199998349312")
 const command = args.shift().toLowerCase();
 
-const reactions = {
-	ACCEPT: '✅',
-	DENY: '❌',
-}
-
 if (command === 'request') {
 	if (message.channel.type == "dm") {
 		let username = args[0]
