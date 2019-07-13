@@ -35,7 +35,7 @@ if (command === 'request') {
 
 if (command == 'whitelist') {
 	if (!message.member.hasPermission('ADMINISTRATOR')) {
-		return message.channel.send('You do not have permissions to use this command.')
+		return message.channel.send('You are not authorized to use this command.')
 	}
 	
 	if (!args[0]) {
