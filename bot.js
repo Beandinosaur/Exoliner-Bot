@@ -35,6 +35,9 @@ if (command === 'request') {
 
 if (command == 'whitelist') {
 	
+	if (!message.member.hasPermission('MANAGE_ROLES')) {
+		return message.channel.send('You are not authorized to use this command.')
+	}
 	
 	if (!args[0]) {
 		return message.channel.send('You did not specify a user to whitelist.')
