@@ -24,7 +24,7 @@ if (command === 'request') {
 		.then(function (message) {
 			message.react('✅')
 			message.react('❌')
-		}
+		})
 	}
 }
 	
