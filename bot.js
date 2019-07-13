@@ -19,7 +19,12 @@ if (command === 'request') {
 		let username = args[0]
 		let owner = message.author
 		message.channel.send(`Sent request for account ${username}.`)
+		
 		channel.send(`User ${owner} sent a whitelist request for username '${username}'.`)
+		.then(function (message) {
+			message.react('✅')
+			message.react('❌')
+		}
 	}
 }
 	
