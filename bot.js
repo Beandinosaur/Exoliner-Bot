@@ -35,12 +35,7 @@ if (command === 'request') {
 	}
 }
 	
-if (command == 'whitelist') {
-	if (!message.member.permissions.has('ADMINISTRATOR') return message.channel.send('You do not have permissions to use that command.')
-	if (!args[0]) return message.channel.send('You did not specify a user to whitelist.')
-	
-	message.channel.send(`***${args[0]} was successfully whitelisted.***`);
-}
+
   
 });
 
