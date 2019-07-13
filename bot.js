@@ -41,7 +41,7 @@ if (command == 'whitelist') {
 	
 	
 	let username = args[0]
-	message.channel.send(`Successfully whitelisted user ${username}`);
+	message.channel.send(`Successfully whitelisted user '${username}'`);
 }
 
 });
