@@ -26,7 +26,7 @@ if (command === 'request') {
 		
 		message.channel.send(`Sent whitelist request for account ${username}.`)
 		
-		acceptWlChannel.send(`User ***${owner}*** sent a whitelist request for username '${username}'.`)
+		acceptWlChannel.send(`User **${owner}** sent a whitelist request for username '${username}'.`)
 		.then(function (message) {
 			message.react('✅')
 			message.react('❌')
@@ -45,7 +45,7 @@ if (command == 'whitelist') {
 
 	let username = args[0]
 	message.channel.send(`Successfully whitelisted user '${username}'`);
-	WlLogs.send(`User '${username}' has been whitelisted by ***${message.author.tag}***`)
+	WlLogs.send(`User '${username}' has been whitelisted by **${message.author.tag}**`)
 }
 
 });
