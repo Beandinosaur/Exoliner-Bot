@@ -34,7 +34,7 @@ if (command === 'request') {
 }
 
 if (command == 'whitelist') {
-	
+	if (message.channel.type == "dm")) return message.channel.send("This command does not work in DMs.");
 	if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send("You do not have permissions to use this command.");
 	
 	if (!args[0]) {
