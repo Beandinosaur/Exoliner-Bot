@@ -34,7 +34,6 @@ if (command === 'request') {
 }
 
 if (command == 'whitelist') {
-	
 	if (!args[0]) {
 		return message.channel.send('You did not specify a user to whitelist.')
 	}
@@ -48,7 +47,7 @@ if (command == 'whitelist') {
 	}
 	
 	let username = args[0]
-	message.channel.send(`Successfully whitelisted user ${user}`);
+	message.channel.send(`Successfully whitelisted user ${username}`);
 }
 
 });
