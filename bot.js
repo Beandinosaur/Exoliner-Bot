@@ -24,7 +24,7 @@ if (command === 'request') {
 			return message.channel.send('You did not specify a user to request a whitelist for.')
 		}
 		
-		message.channel.send(`Sent whitelist request for account ${username}.`)
+		message.channel.send(`Sent whitelist request for account **${username}**.`)
 		
 		acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
 		.then(function (message) {
