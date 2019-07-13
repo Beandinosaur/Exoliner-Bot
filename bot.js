@@ -12,6 +12,7 @@ if (message.content.indexOf(prefix) !== 0) return;
 var sender = message.author
 let args = message.content.slice(prefix.length).split(/ +/);
 let acceptWlChannel = client.channels.get("599542199998349312")
+let WlLogs = client.channels.get("599583754587078676")
 const command = args.shift().toLowerCase();
 	
 if (command === 'request') {
@@ -44,6 +45,7 @@ if (command == 'whitelist') {
 
 	let username = args[0]
 	message.channel.send(`Successfully whitelisted user '${username}'`);
+	WlLogs.send(`User ${username} has been whitelisted by ${message.author}`)
 }
 
 });
