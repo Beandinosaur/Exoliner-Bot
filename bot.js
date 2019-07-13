@@ -17,7 +17,7 @@ const command = args.shift().toLowerCase();
 if (command === 'request') {
 	if (message.channel.type == "dm") {
 		let username = args[0]
-		let owner = message.author
+		let owner = message.user.tag
 		message.channel.send(`Sent request for account ${username}.`)
 		
 		channel.send(`User ${owner} sent a whitelist request for username '${username}'.`)
