@@ -14,8 +14,11 @@ var sender = message.author
 let args = message.content.slice(prefix.length).split(/ +/);
 const command = args.shift().toLowerCase();
 	
-if (command === 'buy') {
-	message.channel.send(`your mom gay lol`)
+if (command === 'request') {
+	if (message.channel.type == "dm") {
+		let username = args[0]
+		message.channel.send(`Sent request for account ${username}`)
+	}
 }
 	
 if (command == 'whitelist') {
