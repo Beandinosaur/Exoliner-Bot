@@ -29,8 +29,8 @@ if (command === 'request') {
 }
 	
 if (command == 'whitelist') {
-	if (!message.member.permissions.has('ADMINISTRATOR') return message.channel.send('You do not have permissions to use this command.')
-	if (!args[0]) return message.channel.send('You did not specify the user to whitelist.')
+	if (!sender.permissions.has('ADMINISTRATOR') return message.channel.send('You do not have permissions to use this command.')
+	if (!args[0]) return message.channel.send('You did not specify a user to whitelist.')
 	
 	let user = args[0]
 	message.channel.send(`Successfully whitelisted user ${user}`);
