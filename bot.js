@@ -24,10 +24,6 @@ if (command === 'request') {
 		let username = args[0]
 		message.channel.send(`Sent request for account ${username}.`)
 		
-		const filter = (reaction, user) => {
-			return ['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
-		};
-		
 		channel.send(`User ${sender} sent a whitelist request for username '${username}'.`).then(async message => {
 			message.react('✅').then(() => message.react('❌'));
 		})
