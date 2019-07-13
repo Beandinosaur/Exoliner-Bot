@@ -18,7 +18,7 @@ const command = args.shift().toLowerCase();
 if (command === 'request') {
 	if (message.channel.type == "dm") {
 		let username = args[0]
-		let owner = message.author
+		let owner = message.author.tag
 		
 		if (!args[0]) {
 			return message.channel.send('You did not specify a user to request a whitelist for.')
@@ -45,7 +45,7 @@ if (command == 'whitelist') {
 
 	let username = args[0]
 	message.channel.send(`Successfully whitelisted user '${username}'`);
-	WlLogs.send(`User '${username}' has been whitelisted by ${message.author}`)
+	WlLogs.send(`User '${username}' has been whitelisted by ${message.author.tag}`)
 }
 
 });
