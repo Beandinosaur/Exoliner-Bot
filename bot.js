@@ -28,28 +28,28 @@ if (command === 'request') {
 		
 		acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
 		.then(newMessage => {
-                newMessage.react('✅')
-                    .then(() => {
-			newMessage.react('❌')
-                    });
-			const filter = (reaction, user) => {
-				return reaction.emoji.name === '✅' && user.id !== client.user.id ||
-					reaction.emoji.name === '❌' && user.id !== client.user.id;
-			}
+			newMessage.react('✅')
+				.then(() => {
+				newMessage.react('❌')
+			});
+		})
+		const filter = (reaction, user) => {
+			return reaction.emoji.name === '✅' && user.id !== client.user.id ||
+				reaction.emoji.name === '❌' && user.id !== client.user.id;
+		}
 			
-			let emojiPause = new Discord.ReactionCollector(newMessage, filter, {
-				time: 600000
-			})
+		let emojiPause = new Discord.ReactionCollector(newMessage, filter, {
+			time: 600000
+		})
 
-			emojiPause.on('collect', (reaction, reactionCollector) => {
-				if (reaction.emoji.name === '✅') {
-					let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-					message.channel.send(`Whitelist request from **${username}** has been accepted.`)
-				} else if (reaction.emoji.name === '❌') {
-					let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-					message.channel.send(`Whitelist request from **${username}** has been denied.`)
-				}
-			})
+		emojiPause.on('collect', (reaction, reactionCollector) => {
+			if (reaction.emoji.name === '✅') {
+				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
+				message.channel.send(`Whitelist request from **${username}** has been accepted.`);
+			} else if (reaction.emoji.name === '❌') {
+				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
+				message.channel.send(`Whitelist request from **${username}** has been denied.`);
+			}
 		})
 	}
 }
