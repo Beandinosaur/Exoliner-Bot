@@ -20,7 +20,7 @@ if (command === 'request') {
 		let username = args[0]
 		let owner = message.author.tag
 		
-		if (!args[0]) {✅❌
+		if (!args[0]) {
 			return message.channel.send('You did not specify a user to request a whitelist for.')
 		}
 		
