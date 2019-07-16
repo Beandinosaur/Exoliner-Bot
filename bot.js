@@ -29,9 +29,9 @@ if (command === 'request') {
 	.then(newMessage => {
 		newMessage.react('✅')
 			.then(() => {
-				newMessage.react('❌')
-			});
+			newMessage.react('❌')
 		});
+	});
 	const filter = (reaction, user) => {
 		return reaction.emoji.name === '✅' && user.id !== client.user.id ||
 			reaction.emoji.name === '❌' && user.id !== client.user.id;
@@ -40,9 +40,8 @@ if (command === 'request') {
 	let emojiPause = new Discord.ReactionCollector(newMessage, filter, {
 		time: 600000
 	})
-	}
 }
-	  
+
 if (command == 'whitelist') {
 	if (message.channel.type == "dm") return message.channel.send("This command does not work in DMs.");
 	if(message.author.bot) return;
