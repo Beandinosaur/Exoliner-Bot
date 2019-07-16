@@ -42,10 +42,10 @@ if (command === 'request') {
 		emojiPause.on('collect', (reaction, reactionCollector) => {
 			if (reaction.emoji.name === '✅') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				message.channel.send(`Whitelist request from **${username}** has been accepted.`);
+				acceptWlChannel.send(`Whitelist request from **${username}** has been accepted.`);
 			} else if (reaction.emoji.name === '❌') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				message.channel.send(`Whitelist request from **${username}** has been denied.`);
+				acceptWlChannel.send(`Whitelist request from **${username}** has been denied.`);
 			}
 		})
 	});
