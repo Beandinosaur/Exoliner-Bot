@@ -20,7 +20,7 @@ if (command === 'request') {
 		let username = args[0]
 		let owner = message.author.tag
 		
-		if (!args[0]) {
+		if (!args[0]) {✅❌
 			return message.channel.send('You did not specify a user to request a whitelist for.')
 		}
 		
@@ -28,26 +28,28 @@ if (command === 'request') {
 		
 		acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
 		.then(newMessage => {
-			newMessage.react('✅')
-				.then(() => {
-				newMessage.react('❌')
-			});
-		const filter = (reaction, user) => {
-			return reaction.emoji.name === '✅' && user.id !== client.user.id ||
-				reaction.emoji.name === '❌' && user.id !== client.user.id;
-		}
-		let emojiPause = new Discord.ReactionCollector(newMessage, filter, {
-			time: 600000
-		})
-		
-		emojiPause.on('collect', (reaction, reactionCollector) => {
-			if (reaction.emoji.name === '✅') {
-				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				message.channel.send(`**${username}** has been successfully whitelisted.`)
-			} else if (reaction.emoji.name === '❌') {
-				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				message.channel.send(`Denied whitelist request by **${username}**.`)
+                newMessage.react('✅')
+                    .then(() => {
+			newMessage.react('❌')
+                    });
+			const filter = (reaction, user) => {
+				return reaction.emoji.name === '✅' && user.id !== client.user.id ||
+					reaction.emoji.name === '❌' && user.id !== client.user.id;
 			}
+			
+			let emojiPause = new Discord.ReactionCollector(newMessage, filter, {
+				time: 600000
+			})
+
+			emojiPause.on('collect', (reaction, reactionCollector) => {
+				if (reaction.emoji.name === '✅') {
+					let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
+					message.channel.send(`Whitelist request from **${username}** has been accepted.`)
+				} else if (reaction.emoji.name === '❌') {
+					let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
+					message.channel.send(`Whitelist request from **${username}** has been denied.`)
+				}
+			})
 		})
 	})
 }
