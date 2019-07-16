@@ -51,7 +51,7 @@ if (command === 'request') {
 				}
 			})
 		})
-	})
+	}
 }
 
 if (command == 'whitelist') {
