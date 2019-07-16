@@ -24,23 +24,9 @@ if (command === 'request') {
 		
 	message.channel.send(`Sent whitelist request for account **${username}**.`)
 	acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
-		.then(newMessage => {
-		newMessage.react('✅')
-			.then(() => {
-				newMessage.react('❌')
-			})
-		});
-	const filter = (reaction, user) => {
-		return reaction.emoji.name === '✅' && user.id !== client.user.id ||
-			reaction.emoji.name === '❌' && user.id !== client.user.id;
-	}
-			
-	let emojiPause = new Discord.ReactionCollector(newMessage, filter, {
-		time: 600000
-	})
-	}
+		
 }
-	  
+
 if (command == 'whitelist') {
 	if (message.channel.type == "dm") return message.channel.send("This command does not work in DMs.");
 	if(message.author.bot) return;
