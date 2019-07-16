@@ -27,11 +27,30 @@ if (command === 'request') {
 		message.channel.send(`Sent whitelist request for account **${username}**.`)
 		
 		acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
-		.then(function (message) {
-			message.react('✅')
-			message.react('❌')
-		})
+		.then(newMessage => {
+			newMessage.react('✅')
+				.then(() => {
+				newMessage.react('❌')
+			})
+		});
+	const filter = (reaction, user) => {
+		return reaction.emoji.name === '✅' && user.id !== client.user.id ||
+                        reaction.emoji.name === '❌' && user.id !== client.user.id;
 	}
+	let emojiPause = new Discord.ReactionCollector(newMessage, filter, {
+		time: 600000
+	})
+	
+	emojiPause.on('collect', (reaction, reactionCollector) => {
+		if (reaction.emoji.name === '✅') {
+			let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
+			message.channel.send(`**${username}** has been successfully whitelisted.`)
+			
+		} else if (reaction.emoji.name === '❌') {
+			let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
+			message.channel.send(`Denied whitelist request by **${username}**.`)
+		}
+	})
 }
 
 if (command == 'whitelist') {
