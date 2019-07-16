@@ -49,7 +49,7 @@ if (command === 'request') {
 				message.channel.send(`Denied whitelist request by **${username}**.`)
 			}
 		})
-	}
+	})
 }
 
 if (command == 'whitelist') {
