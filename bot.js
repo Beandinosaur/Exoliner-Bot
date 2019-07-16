@@ -16,34 +16,31 @@ let WlLogs = client.channels.get("599583754587078676")
 const command = args.shift().toLowerCase();
 	
 if (command === 'request') {
-	if (message.channel.type == "dm") {
-		let username = args[0]
-		let owner = message.author.tag
+	if (message.channel.type != "dm") return message.channel.send("This command only works in DMs.");
+	if (!args[0]) return message.channel.send('You did not specify a user to request a whitelist for.');
+	
+	let username = args[0]
+	let owner = message.author.tag
 		
-		if (!args[0]) {
-			return message.channel.send('You did not specify a user to request a whitelist for.')
-		}
-		
-		message.channel.send(`Sent whitelist request for account **${username}**.`)
-		
-		acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
+	message.channel.send(`Sent whitelist request for account **${username}**.`)
+	acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
 		.then(newMessage => {
-			newMessage.react('✅')
-				.then(() => {
+		newMessage.react('✅')
+			.then(() => {
 				newMessage.react('❌')
 			})
 		});
-		const filter = (reaction, user) => {
-			return reaction.emoji.name === '✅' && user.id !== client.user.id ||
-				reaction.emoji.name === '❌' && user.id !== client.user.id;
-		}
+	const filter = (reaction, user) => {
+		return reaction.emoji.name === '✅' && user.id !== client.user.id ||
+			reaction.emoji.name === '❌' && user.id !== client.user.id;
+	}
 			
-		let emojiPause = new Discord.ReactionCollector(newMessage, filter, {
-			time: 600000
-		})
+	let emojiPause = new Discord.ReactionCollector(newMessage, filter, {
+		time: 600000
+	})
 	}
 }
-
+	  
 if (command == 'whitelist') {
 	if (message.channel.type == "dm") return message.channel.send("This command does not work in DMs.");
 	if(message.author.bot) return;
@@ -57,4 +54,5 @@ if (command == 'whitelist') {
 	message.channel.send(`Successfully whitelisted user **${username}**`);
 	WlLogs.send(`User **${username}** has been whitelisted by **${message.author.tag}**`);
 }
+
 client.login(process.env.BOT_TOKEN);
