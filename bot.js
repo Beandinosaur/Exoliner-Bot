@@ -28,10 +28,9 @@ if (command === 'request') {
 	
 	.then(newMessage => {
 		newMessage.react('✅')
-			.then(() => {
-			newMessage.react('❌')
-		});
+		newMessage.react('❌')
 	});
+	
 	const filter = (reaction, user) => {
 		return reaction.emoji.name === '✅' && user.id !== client.user.id ||
 			reaction.emoji.name === '❌' && user.id !== client.user.id;
