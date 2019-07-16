@@ -66,5 +66,5 @@ if (command == 'whitelist') {
 	message.channel.send(`Successfully whitelisted user **${username}**`);
 	WlLogs.send(`User **${username}** has been whitelisted by **${message.author.tag}**`);
 }
-}
+})
 client.login(process.env.BOT_TOKEN);
