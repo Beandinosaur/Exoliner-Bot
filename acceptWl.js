@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 
 async function acceptWl(whitelister, user) {
 	acceptWlChannel.send(`Whitelist request from **${user}** has been accepted.`);
-	newMessage.delete()
 				
 	var embed = new Discord.RichEmbed();
 	embed
