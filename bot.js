@@ -24,9 +24,9 @@ if (command === 'request') {
 	let owner = message.author.tag
 		
 	message.channel.send(`Sent whitelist request for account **${username}**.`)
-	acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
 	
-	.then(newMessage => {
+	acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
+		.then(newMessage => {
 		newMessage.react('✅')
 		newMessage.react('❌')
 	
@@ -43,9 +43,21 @@ if (command === 'request') {
 			if (reaction.emoji.name === '✅') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
 				acceptWlChannel.send(`Whitelist request from **${username}** has been accepted.`);
+				newMessage.delete()
+				
+				const embed = new Discord.RichEmbed();
+				embed
+					.setColor("#0080ff")
+					.setAuthor(`Whitelist Request`)
+					.addField(`User Whitelisted:`, `${username}`)
+					.addField(`Accepted by:`, `${username}`)
+				
+				WlLogs.send(embed)
+				
 			} else if (reaction.emoji.name === '❌') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
 				acceptWlChannel.send(`Whitelist request from **${username}** has been denied.`);
+				newMessage.delete()
 			}
 		})
 	});
