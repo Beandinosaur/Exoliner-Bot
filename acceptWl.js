@@ -11,14 +11,25 @@ async function acceptWl(whitelister, user, client) {
 		message.delete(5000)
 	});
 	       
-	const embed = new Discord.RichEmbed();
-	embed
-		.setColor(Color)
-		.setAuthor("Whitelist Request")
-		.addField("User Whitelisted:", `${user}`)
-		.addField("Accepted by:", `${whitelister}`);
-	
-	WlLogs.send(embed);
+	const embed = {
+		"color": 4886754,
+		"author": {
+			"name": "Whitelist Request"
+		},
+		"fields": [
+			{
+				"name": "User Whitelisted:",
+				"value": "Bean_dinosaur",
+				"inline": true
+			},
+			{
+				"name": "Accepted by:",
+				"value": "Beandinosaur",
+				"inline": true
+			}
+		]
+	};
+	WlLogs.send({ embed });
 }
 
 module.exports = acceptWl;
