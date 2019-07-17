@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const guild = client.guilds.get('586091288743641131'),
 const acceptWl = require('./acceptWl.js');
 const denyWl = require('./denyWl.js');
 const prefix = '!';
@@ -15,7 +14,6 @@ if (message.content.indexOf(prefix) !== 0) return;
 
 var sender = message.author
 
-if (!guild.member(sender.id)) return;
 let args = message.content.slice(prefix.length).split(/ +/);
 let acceptWlChannel = client.channels.get("599542199998349312")
 let WlLogs = client.channels.get("599583754587078676")
