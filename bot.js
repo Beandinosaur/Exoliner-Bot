@@ -44,11 +44,11 @@ if (command === 'request') {
 		emojiPause.on('collect', (reaction, reactionCollector) => {
 			if (reaction.emoji.name === '✅') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				acceptWl(reactorUsername)
+				acceptWl(reactorUsername, username)
 				newMessage.delete()
 			} else if (reaction.emoji.name === '❌') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				denyWl(reactorUsername)
+				denyWl(reactorUsername, username)
 				newMessage.delete()
 			}
 		})
