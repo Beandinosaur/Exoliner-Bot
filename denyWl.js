@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 async function acceptWl(whitelister, user) {
-  acceptWlChannel.send(`Whitelist request from **${username}** has been denied.`);
+  acceptWlChannel.send(`Whitelist request from **${user}** has been denied.`);
   newMessage.delete()
 }
 
