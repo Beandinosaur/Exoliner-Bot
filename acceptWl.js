@@ -9,7 +9,7 @@ async function acceptWl(whitelister, user, client) {
 	acceptWlChannel.send(`Whitelist request from **${user}** has been accepted.`);
 				
 	const Embed = new Discord.RichEmbed();
-	embed
+	Embed
 		.setColor("#0080FF")
 		.setAuthor(`Whitelist Request`)
 		.addField(`User Whitelisted:`, `${whitelister}`)
