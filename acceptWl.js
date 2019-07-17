@@ -15,10 +15,10 @@ async function acceptWl(whitelister, user, client) {
 	embed
 		.setColor(Color)
 		.setAuthor("Whitelist Request")
-		.addField("User Whitelisted:", `${whitelister}`)
-		.addField("Accepted by:", `${user}`);
+		.addField("User Whitelisted:", `${user}`)
+		.addField("Accepted by:", `${whitelister}`);
 	
-	WlLogs.send(`${user}`);
+	WlLogs.send(`${whitelister}`);
 }
 
 module.exports = acceptWl;
