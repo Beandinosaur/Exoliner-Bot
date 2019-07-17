@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
 
 async function acceptWl(whitelister, user, client) {
 	
