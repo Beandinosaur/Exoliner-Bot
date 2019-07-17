@@ -22,12 +22,12 @@ if (command === 'request') {
 	if (message.channel.type != "dm") return message.channel.send("This command only works in DMs.");
 	if (!args[0]) return message.channel.send('You did not specify a user to request a whitelist for.');
 	
-	let username = args[0]
+	let requestedUser = args[0]
 	let owner = message.author.tag
 		
-	message.channel.send(`Sent whitelist request for account **${username}**.`)
+	message.channel.send(`Sent whitelist request for account **${requestedUser}**.`)
 	
-	acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${username}**.`)
+	acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${requestedUser}**.`)
 		.then(newMessage => {
 		newMessage.react('✅')
 		newMessage.react('❌')
@@ -44,11 +44,11 @@ if (command === 'request') {
 		emojiPause.on('collect', (reaction, reactionCollector) => {
 			if (reaction.emoji.name === '✅') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				acceptWl(reactorUsername, username, client)
+				acceptWl(reactorUsername, requestedUser, client)
 				newMessage.delete()
 			} else if (reaction.emoji.name === '❌') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				denyWl(reactorUsername, username, client)
+				denyWl(reactorUsername, requestedUser, client)
 				newMessage.delete()
 			}
 		})
@@ -64,9 +64,9 @@ if (command == 'whitelist') {
 		return message.channel.send('You did not specify a user to whitelist.')
 	}
 
-	let username = args[0]
-	message.channel.send(`Successfully whitelisted user **${username}**`);
-	WlLogs.send(`User **${username}** has been whitelisted by **${message.author.tag}**`);
+	let requestedUser = args[0]
+	message.channel.send(`Successfully whitelisted user **${requestedUser}**`);
+	WlLogs.send(`User **${requestedUser}** has been whitelisted by **${message.author.tag}**`);
 }
 
 });
