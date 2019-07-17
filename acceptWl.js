@@ -19,12 +19,12 @@ async function acceptWl(whitelister, user, client) {
 		"fields": [
 			{
 				"name": "User Whitelisted:",
-				"value": "Bean_dinosaur",
+				"value": `${user}`,
 				"inline": true
 			},
 			{
 				"name": "Accepted by:",
-				"value": "Beandinosaur",
+				"value": `${whitelister}`,
 				"inline": true
 			}
 		]
