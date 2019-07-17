@@ -28,18 +28,8 @@ if (command === 'request') {
 		
 	message.channel.send(`Sent whitelist request for account **${requestedUser}**.`)
 	
-	const embedAsd = {
-		"color": 4886754,
-		"fields": [
-			{
-				"name": "Whitelist System",
-				"value": `User **${owner}** sent a whitelist request for username **${requestedUser}**.`
-			}
-		]
-	};
-	
-	acceptWlChannel.send({ embedAsd })
-	.then(newMessage => {
+	acceptWlChannel.send(`User **${owner}** sent a whitelist request for username **${requestedUser}**.`)
+		.then(newMessage => {
 		newMessage.react('✅')
 		newMessage.react('❌')
 	
