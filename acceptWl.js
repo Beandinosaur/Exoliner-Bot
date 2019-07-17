@@ -14,7 +14,7 @@ async function acceptWl(whitelister, user, client) {
 	const embed = {
 		"color": 4886754,
 		"author": {
-			"name": "Whitelist Request"
+			"name": "Whitelist System"
 		},
 		"fields": [
 			{
