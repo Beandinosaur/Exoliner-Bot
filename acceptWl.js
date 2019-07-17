@@ -13,9 +13,9 @@ async function acceptWl(whitelister, user, client) {
 	const Embed = new Discord.RichEmbed();
 	Embed
 		.setColor("#0080FF")
-		.setAuthor(`Whitelist Request`)
-		.addField(`User Whitelisted:`, `${whitelister}`)
-		.addField(`Accepted by:`, `${user}`);
+		.setAuthor("Whitelist Request")
+		.addField("User Whitelisted:", `${whitelister}`)
+		.addField("Accepted by:", `${user}`);
 	
 	WlLogs.send({Embed});
 }
