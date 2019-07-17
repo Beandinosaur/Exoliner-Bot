@@ -47,10 +47,12 @@ if (command === 'request') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
 				acceptWl(reactorUsername, requestedUser, owner, client)
 				newMessage.delete()
+				message.channel.send(`Your whitelist request has been accepted by **${reactorUsername}**.`)
 			} else if (reaction.emoji.name === '❌') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
 				denyWl(reactorUsername, requestedUser, owner, client)
 				newMessage.delete()
+				message.channel.send(`Your whitelist request has been denied by **${reactorUsername}**.`)
 			}
 		})
 	});
