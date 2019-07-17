@@ -45,9 +45,10 @@ if (command === 'request') {
 			if (reaction.emoji.name === '✅') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
 				acceptWl(reactorUsername)
+				newMessage.delete()
 			} else if (reaction.emoji.name === '❌') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				acceptWlChannel.send(`Whitelist request from **${username}** has been denied.`);
+				denyWl(reactorUsername)
 				newMessage.delete()
 			}
 		})
