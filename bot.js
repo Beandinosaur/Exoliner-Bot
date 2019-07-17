@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const acceptWl = require('./acceptWl.js');
+const denyWl = require('./denyWl.js');
 const prefix = '!';
 
 client.on('ready', () => {
@@ -9,7 +11,7 @@ client.on('ready', () => {
 client.on('message', message => {
 	
 if (message.content.indexOf(prefix) !== 0) return;
-	
+
 var sender = message.author
 let args = message.content.slice(prefix.length).split(/ +/);
 let acceptWlChannel = client.channels.get("599542199998349312")
@@ -42,18 +44,7 @@ if (command === 'request') {
 		emojiPause.on('collect', (reaction, reactionCollector) => {
 			if (reaction.emoji.name === '✅') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
-				acceptWlChannel.send(`Whitelist request from **${username}** has been accepted.`);
-				newMessage.delete()
-				
-				var embed = new Discord.RichEmbed();
-				embed
-					.setColor("#0080FF")
-					.setAuthor(`Whitelist Request`)
-					.addField(`User Whitelisted:`, `${username}`)
-					.addField(`Accepted by:`, `${username}`)
-				
-				WlLogs.send(embed)
-				
+				acceptWl(reactorUsername)
 			} else if (reaction.emoji.name === '❌') {
 				let reactorUsername = reaction.users.filter(user => user.id !== client.user.id).array()[0].username;
 				acceptWlChannel.send(`Whitelist request from **${username}** has been denied.`);
