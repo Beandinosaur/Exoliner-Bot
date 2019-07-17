@@ -37,7 +37,7 @@ if (command === 'request') {
 		]
 	};
 	
-	acceptWlChannel.send({ embedAsd });
+	acceptWlChannel.send({ embedAsd })
 	.then(newMessage => {
 		newMessage.react('✅')
 		newMessage.react('❌')
