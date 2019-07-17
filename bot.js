@@ -45,7 +45,7 @@ if (command === 'request') {
 				acceptWlChannel.send(`Whitelist request from **${username}** has been accepted.`);
 				newMessage.delete()
 				
-				let embed = new Discord.RichEmbed();
+				var embed = new Discord.RichEmbed();
 				embed
 					.setColor("#0080FF")
 					.setAuthor(`Whitelist Request`)
