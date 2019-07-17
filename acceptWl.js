@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const Color = "#0080FF";
 
 async function acceptWl(whitelister, user, client) {
 	
@@ -12,7 +13,7 @@ async function acceptWl(whitelister, user, client) {
 	       
 	const embed = new Discord.RichEmbed();
 	embed
-		.setColor("#0080FF")
+		.setColor(Color)
 		.setAuthor("Whitelist Request")
 		.addField("User Whitelisted:", `${whitelister}`)
 		.addField("Accepted by:", `${user}`);
