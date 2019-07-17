@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const client = new Discord.Client();
 const acceptWlChannel = client.channels.get("599542199998349312")
 const WlLogs = client.channels.get("599583754587078676")
 
