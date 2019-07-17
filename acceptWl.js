@@ -15,7 +15,7 @@ async function acceptWl(whitelister, user, client) {
 		.addField(`User Whitelisted:`, `${whitelister}`)
 		.addField(`Accepted by:`, `${user}`);
 	
-	WlLogs.send({ embed: Embed })
+	WlLogs.send({Embed});
 }
 
 module.exports = acceptWl;
