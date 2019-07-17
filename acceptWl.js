@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-async function acceptWl(whitelister, user) {
+async function acceptWl(whitelister, user, client) {
 	
 	let acceptWlChannel = client.channels.get("599542199998349312")
 	let WlLogs = client.channels.get("599583754587078676")
