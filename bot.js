@@ -29,6 +29,7 @@ if (command === 'request') {
 	message.channel.send(`Sent whitelist request for account **${requestedUser}**.`)
 	
 	const embedAsd = {
+		"color": 4886754,
 		"fields": [
 			{
 				"name": "Whitelist System",
