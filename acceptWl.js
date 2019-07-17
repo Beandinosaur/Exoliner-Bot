@@ -10,14 +10,14 @@ async function acceptWl(whitelister, user, client) {
 		message.delete(5000)
 	});
 	       
-	const Embed = new Discord.RichEmbed();
-	Embed
+	const embed = new Discord.RichEmbed();
+	embed
 		.setColor("#0080FF")
 		.setAuthor("Whitelist Request")
 		.addField("User Whitelisted:", `${whitelister}`)
 		.addField("Accepted by:", `${user}`);
 	
-	WlLogs.send({Embed});
+	WlLogs.send({embed});
 }
 
 module.exports = acceptWl;
