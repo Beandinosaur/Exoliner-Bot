@@ -1,6 +1,9 @@
 const Discord = require('discord.js');
+const acceptWlChannel = client.channels.get("599542199998349312")
+const WlLogs = client.channels.get("599583754587078676")
 
 async function acceptWl(whitelister, user) {
+
 	acceptWlChannel.send(`Whitelist request from **${user}** has been accepted.`);
 				
 	var embed = new Discord.RichEmbed();
