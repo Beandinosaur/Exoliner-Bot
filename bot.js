@@ -21,7 +21,7 @@ fs.readdir("./commands/", (err, files) => {
 	
 	jsfiles.forEach((f, i) => {
 		let props = require(`./commands/${f}`);
-		client.commands.set(f, props);
+		client.commands.set(props.help.name, props);
 	});
 });
 
@@ -30,12 +30,12 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-	if (message.content.indexOf(prefix) !== 0) return;
-	var sender = message.author
 	
 	let messageArray = message.content.split(/\s+/g);
 	let command = messageArray[0];
 	let args = messageArray.slice(1);
+	
+	if(!command.startsWith(prefix)) return;
 	
 	let cmd = client.commands.get(command.slice(prefix.length));
 	if(cmd) cmd.run(client, message, args);
