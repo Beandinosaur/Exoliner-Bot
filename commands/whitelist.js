@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js");
-const wlUser = module.require("./wlUser.js")
+const wlUser = module.require("../wlUser.js")
 
 module.exports.run = async (client, message, args) => {
 	if (message.channel.type == "dm") return message.channel.send("This command does not work in DMs.");
