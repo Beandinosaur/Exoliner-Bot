@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-cont fs = require('fs');
+const fs = require('fs');
 const client = new Discord.Client();
 const acceptWl = require('./acceptWl.js');
 const denyWl = require('./denyWl.js');
