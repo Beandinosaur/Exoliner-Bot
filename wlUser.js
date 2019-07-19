@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const request = require('request');
-const Color = "#0080FF";
 const sitekey = process.env.SITE_KEY
 
 async function wlUser(whitelister, user, client) {
