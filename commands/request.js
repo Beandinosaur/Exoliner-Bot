@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
-const acceptWl = module.require("././acceptWl.js")
-const denyWl = module.require("././denyWl.js")
+const acceptWl = module.require("./acceptWl.js")
+const denyWl = module.require("./denyWl.js")
 
 module.exports.run = async (client, message, args) => {
 	if (message.channel.type != "dm") return message.channel.send("This command only works in DMs.");

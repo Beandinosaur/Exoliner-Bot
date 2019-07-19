@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const client = new Discord.Client();
-const acceptWl = require('./acceptWl.js');
-const denyWl = require('./denyWl.js');
-const wlUser = require('./wlUser.js');
 const prefix = '!';
 
 client.commands = new Discord.Collection();
