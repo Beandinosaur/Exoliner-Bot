@@ -27,7 +27,7 @@ async function wlUser(whitelister, user, client) {
 				"inline": true
 			},
 			{
-				"name": "Accepted by:",
+				"name": "Whitelisted by:",
 				"value": `${whitelister}`,
 				"inline": true
 			}
