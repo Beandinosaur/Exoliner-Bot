@@ -37,7 +37,7 @@ client.on('message', message => {
 	let command = messageArray[0];
 	let args = messageArray.slice(1);
 	
-	let cmd = bot.commands.get(command.slice(prefix.length));
+	let cmd = client.commands.get(command.slice(prefix.length));
 	if(cmd) cmd.run(client, message, args);
 	
 });
