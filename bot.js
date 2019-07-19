@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const acceptWl = require('./acceptWl.js');
 const denyWl = require('./denyWl.js');
+const wlUser = require('./wlUser.js');
 const prefix = '!';
 
 client.on('ready', () => {
@@ -69,7 +70,7 @@ if (command == 'whitelist') {
 
 	let requestedUser = args[0]
 	message.channel.send(`Successfully whitelisted user **${requestedUser}**`);
-	WlLogs.send(`User **${requestedUser}** has been whitelisted by **${message.author.tag}**`);
+	wlUser(message.author, requestedUser, client)
 }
 
 });
