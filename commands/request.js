@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
 	
 	let requestedUser = args[0]
 	let owner = message.author.tag
-	let acceptWlChannel = client.channels.get(599542199998349312)
+	const acceptWlChannel = client.channels.get(599542199998349312)
 	
 		
 	message.channel.send(`Sent whitelist request for account **${requestedUser}**.`)
