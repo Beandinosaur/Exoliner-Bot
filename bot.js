@@ -8,7 +8,7 @@ const prefix = '!';
 
 client.commands = new Discord.Collection();
 
-fs.readdir(".commands/", (err, files) = {
+fs.readdir("./commands/", (err, files) => {
 	if(err) console.error(err);
 	
 	let jsfiles = files.filter(f => f.split(".").pop() === "js");
