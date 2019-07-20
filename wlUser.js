@@ -6,7 +6,7 @@ async function wlUser(whitelister, user, client, message) {
 	var server = message.guild.id;
 	
 	var acceptWlChannel = client.channels.get("599542199998349312")
-	var WlLogs = client.channels.get("599583754587078676")
+	var WlLogs = client.channels.get("601975027230834690")
 	var sitekey = process.env.SITE_KEY
 	
 	if (server == 586091288743641131) { // exo
