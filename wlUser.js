@@ -1,9 +1,10 @@
 const Discord = require('discord.js');
 const request = require('request');
 const sitekey = process.env.SITE_KEY
+const exokey = process.env.EXO_KEY
 
-async function wlUser(whitelister, user, client) {
-	
+async function wlUser(whitelister, user, client, message) {
+
 	let acceptWlChannel = client.channels.get("599542199998349312")
 	let WlLogs = client.channels.get("599583754587078676")
 	
