@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const request = require('request');
 const sitekey = process.env.SITE_KEY
 
-async function blUser(whitelister, user, client) {
+async function blUser(whitelister, user, client, message) {
 	
 	var server = message.guild.id;
 	var WlLogs = client.channels.get("601975027230834690")
