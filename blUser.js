@@ -4,8 +4,7 @@ const sitekey = process.env.SITE_KEY
 
 async function blUser(whitelister, user, client) {
 	
-	
-	var acceptWlChannel = client.channels.get("599542199998349312")
+	var server = message.guild.id;
 	var WlLogs = client.channels.get("601975027230834690")
 	var sitekey = process.env.SITE_KEY
 	
