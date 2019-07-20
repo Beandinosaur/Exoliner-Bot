@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
 
 	let requestedUser = args[0]
 	message.channel.send(`Successfully blacklisted user **${requestedUser}**.`);
-	blUser(message.author, requestedUser, client)
+	blUser(message.author, requestedUser, client, message)
 }
 
 module.exports.help = {
